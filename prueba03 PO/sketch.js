@@ -3,7 +3,7 @@ let circulos = [];
 let miVelocidadYDireccion; // INTERACTIVIDAD
 
 function setup() {
-  createCanvas(1000, 700);
+  createCanvas(600, 600);
   frameRate(30);
 
   for (let i = 0; i < 5; i++) {
@@ -28,7 +28,7 @@ function draw() {
     circulos[i].dibujar();
     circulos[i].mover();
     circulos[i].vel = circulos[i].vel + velocidad;
-    circulos[i].d = circulos[i].d + dirx/random(5,10) + diry/random (5,10);
+    circulos[i].d = circulos[i].d + dirx/random(7,10) + diry/random (7,10);
 
     if (circulos[i].vel >= 2){
       circulos[i].vel = circulos[i].vel - 0.2;
