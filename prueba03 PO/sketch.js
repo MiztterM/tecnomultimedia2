@@ -31,7 +31,7 @@ function draw() {
     circulos[i].d = circulos[i].d + dirx/random(7,10) + diry/random (7,10);
 
     if (circulos[i].vel >= 2){
-      circulos[i].vel = circulos[i].vel - 0.2;
+      circulos[i].vel = circulos[i].vel - 0.3;
     } else {}
   }
 }
