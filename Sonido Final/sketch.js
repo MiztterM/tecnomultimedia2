@@ -12,7 +12,10 @@ var ground;
 var mConstraint;
 var tamanio;
 
-var h1,h2,h3,h4,h5,h6,h7,h8,h8,h10,h11,tamanio=2;
+var h1,h2,h3,h4,h5,h6,h7,h8,h8,h10,h11;
+
+let crece = false;
+var tiempo = 0;
 
 function setup() {
   createCanvas(800, 800);
@@ -110,8 +113,8 @@ function draw() {
   }
   
   for (let i = 0; i < particles.length; i++) {
-    let dx = random(-1, 1);
-    let dy = random(-1, 1);
+    let dx = random(-2, 2);
+    let dy = random(-2, 2);
 
     // +amplitud +velocidad
     let minSpeed = 0;
@@ -125,14 +128,27 @@ function draw() {
    /* if (amp > 0.7){
     particles[i].r += tamanio*3;
    }*/
+   
 
-    particles[i].r += amp/4;
+   // particles[i].r += amp/4;
 
-    if (amp < 0.7){
-    particles[i].r -= tamanio/60;
+    if (crece == false){
+    particles[i].r += amp;
+    tiempo += 0.2;
+    if (tiempo >= 500){
+      crece = true;
+      tiempo = 0;
+    }
    }
 
-   
+   if (crece == true){
+    particles[i].r -= 0.01 + amp/10;
+    tiempo += 0.2;
+    if (tiempo >= 500){
+      crece = false;
+      tiempo = 0;
+    }
+   }
 
     particles[i].show();
   }
